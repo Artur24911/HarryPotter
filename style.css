@@ -155,7 +155,6 @@ dialog {
     padding: 0;
     border: none;
     background: transparent;
-    max-width: 300px;
     overflow: visible;
     margin: auto;
 }
@@ -180,7 +179,7 @@ dialog::backdrop {
     background: var(--type-color, rgb(107, 107, 123));
     color: var(--white);
     text-align: center;
-    width: 300px;
+    width: 430px;
 }
  
 .dialog-card > img {
@@ -240,10 +239,29 @@ footer{
     align-items: center;
 }
 
-@media (max-width: 560px) {
+@media (max-width: 768px) {
     header {
         height: 420px;
         background-position-x: -188px;
+    }
+
+    .dialog-card{
+        width: 300px;
+        max-height: 630px;
+        min-height: 630px;
+        padding-top: 0px;
+    }
+
+    .dialog-nav{
+    padding: 0px 7px 8px;
+            position: absolute;
+    bottom: 0px;
+    }
+
+    .dialog-nav button {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
     }
 }
  
