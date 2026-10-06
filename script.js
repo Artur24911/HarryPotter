@@ -10,11 +10,9 @@ let pendingSearch = null;
 let currentIndex = 0;
 let isLoading = false;
 
-
 function getElement(dataId) {
     return document.querySelector(`[data-id="${dataId}"]`);
 }
-
 
 function escapeHtml(text) {
     return String(text).replace(/[&<>"']/g, (char) => ({
@@ -22,12 +20,10 @@ function escapeHtml(text) {
     })[char]);
 }
 
-
 function init() {
     setupDialog();
     withLoading(() => showFirstPage(""));
 }
-
 
 async function withLoading(task) {
     setLoading(true);
@@ -41,7 +37,6 @@ async function withLoading(task) {
     }
 }
 
-
 async function fetchPage(page, search) {
     const key = `${search}|${page}`;
     if (pageCache[key]) return pageCache[key];
@@ -52,7 +47,6 @@ async function fetchPage(page, search) {
     pageCache[key] = await response.json();
     return pageCache[key];
 }
-
 
 async function showFirstPage(search) {
     searchText = search;
@@ -65,11 +59,9 @@ async function showFirstPage(search) {
     if (currentList.length === 0) showMessage("not-found", "No match found.");
 }
 
-
 function hasImage(character) {
     return Boolean(character.image);
 }
-
 
 async function collectCharacters() {
     const found = [];
@@ -83,7 +75,6 @@ async function collectCharacters() {
     return { found, page };
 }
 
-
 async function loadNextPage() {
     const startIndex = currentList.length;
     const { found, page } = await collectCharacters();
@@ -94,7 +85,6 @@ async function loadNextPage() {
     await waitForImages(startIndex);
 }
 
-
 function renderCards(characters, startIndex) {
     const listElement = getElement("character-list");
     characters.forEach((character, i) => {
@@ -103,11 +93,9 @@ function renderCards(characters, startIndex) {
     });
 }
 
-
 function loadMore() {
     withLoading(loadNextPage);
 }
-
 
 function waitForImages(startIndex) {
     const images = [...document.querySelectorAll('[data-id="card-image"]')].slice(startIndex);
@@ -119,37 +107,31 @@ function waitForImages(startIndex) {
     return Promise.race([Promise.all(loaded), timeout]);
 }
 
-
 function setLoading(isOn) {
     isLoading = isOn;
     getElement("loading").hidden = !isOn;
     getElement("load-more-button").disabled = isOn;
 }
 
-
 function updateLoadMoreButton() {
     getElement("load-more-button").hidden = currentPage >= totalPages;
 }
-
 
 function showMessage(dataId, text) {
     removeMessage();
     getElement("content").insertAdjacentHTML("beforeend", getMessageTemplate(dataId, text));
 }
 
-
 function removeMessage() {
     const selector = '[data-id="not-found"], [data-id="error-message"]';
     document.querySelectorAll(selector).forEach((element) => element.remove());
 }
-
 
 function onSearchInput() {
     const text = getElement("search-input").value.trim();
     clearTimeout(searchTimer);
     searchTimer = setTimeout(() => runSearch(text), 400);
 }
-
 
 function runSearch(text) {
     if (text.length > 0 && text.length < 3) return;
@@ -162,14 +144,12 @@ function runSearch(text) {
     withLoading(() => showFirstPage(text));
 }
 
-
 function runPendingSearch() {
     if (pendingSearch === null) return;
     const text = pendingSearch;
     pendingSearch = null;
     runSearch(text);
 }
-
 
 function setupDialog() {
     const dialog = getElement("dialog");
@@ -182,7 +162,6 @@ function setupDialog() {
     });
 }
 
-
 function openDialog(index) {
     currentIndex = index;
     renderDialog();
@@ -190,22 +169,18 @@ function openDialog(index) {
     document.body.classList.add("no-scroll");
 }
 
-
 function renderDialog() {
     getElement("dialog").innerHTML = getDialogTemplate(currentList[currentIndex]);
 }
-
 
 function closeDialog() {
     getElement("dialog").close();
 }
 
-
 function showNext() {
     currentIndex = (currentIndex + 1) % currentList.length;
     renderDialog();
 }
-
 
 function showPrevious() {
     currentIndex = (currentIndex - 1 + currentList.length) % currentList.length;
