@@ -1,0 +1,46 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    padding: 0;
+}
+
+h1 {
+    font-family: 'Grenze Gotisch';
+    color: white;
+    font-size: 112px;
+        margin-block-start: 0px;
+    margin-block-end: 0px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    unicode-bidi: normal;
+}
+
+h2 {
+    font-size: 32px;
+    font-family: 'Grenze Gotisch';
+}
+
+p {
+    font-size: 16px;
+    font-family: 'Grenze Gotisch';
+    color: white;
+}
+
+span {
+    font-family: 'Grenze Gotisch';
+    color: black;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+

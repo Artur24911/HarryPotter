@@ -1,0 +1,249 @@
+header{
+    background-image: url(./assets/icons/magischer-schloss-banner-1990x280.jpg);
+    height: 280px;
+    background-size: cover;
+}
+
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.search-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.search-container>button{
+    margin-left: 10px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    background-color: rgba(97, 66, 0, 0.945);
+    color: white;
+    font-weight: bold;
+    border: none;
+}
+
+main{
+    background-image: url(./assets/icons/generated-image\ \(5\).png);
+    background-size: cover;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.house-gryffindor { --type-color: rgb(174, 0, 1, 0.637); }
+
+.house-slytherin { --type-color: rgb(42, 98, 61, 0.637); }
+
+.house-ravenclaw { --type-color: rgb(59, 91, 181, 0.637); }
+
+.house-hufflepuff { --type-color: rgba(201, 148, 26, 0.637); }
+
+.house-none { --type-color: rgba(107, 107, 123, 0.637); }
+
+.character-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    max-width: 1440px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+ 
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: 300px;
+    height: 225px;
+    padding: 12px;
+    border-radius: 14px;
+    color: var(--white);
+    background: var(--type-color, rgb(107, 107, 123));
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s, box-shadow 0.2s;
+    overflow: hidden;
+}
+
+.card-front-info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+    width: 100%;
+    height: 100%;
+}
+ 
+.card:hover,
+.card:focus-visible {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+}
+ 
+.card-name {
+    font-size: 24px;
+    font-weight: 700;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    overflow-wrap: anywhere;
+}
+ 
+.card-types {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+}
+ 
+.type-tag {
+    padding: 2px 12px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.3);
+}
+ 
+.card img {
+    right: 6px;
+    bottom: 6px;
+    width: 190px;
+    max-height: 120px;
+    object-fit: contain;
+}
+ 
+.load-more {
+    display: block;
+    margin: 24px auto;
+    padding: 12px 32px;
+    border-radius: 24px;
+    background: rgba(97, 66, 0, 0.945);
+    font-weight: 700;
+}
+ 
+.load-more:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+ 
+.load-more[hidden],
+.loading[hidden] {
+    display: none;
+}
+ 
+.loading {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(245, 242, 242, 0.6);
+    font-size: 24px;
+}
+ 
+dialog {
+    display: flex;
+    padding: 0;
+    border: none;
+    background: transparent;
+    max-width: 300px;
+    overflow: visible;
+    margin: auto;
+}
+
+dialog:not([open]) {
+    display: none;
+}
+ 
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.6);
+}
+ 
+.dialog-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 940px;
+    overflow-y: auto;
+    border-radius: 20px;
+    padding-top: 16px;
+    background: var(--type-color, rgb(107, 107, 123));
+    color: var(--white);
+    text-align: center;
+    width: 300px;
+}
+ 
+.dialog-card > img {
+    width: 255px;   
+}
+ 
+.dialog-close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    z-index: 1;
+    background-color: transparent;
+    border: 1px solid black;
+}
+ 
+.dialog-body {
+    padding: 16px;
+    text-align: left;
+}
+ 
+.dialog-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: space-between;
+    padding: 0 40px 20px;
+    background: transparent;
+    width: 100%;
+}
+ 
+.dialog-nav button {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    font-size: 22px;
+    background: var(--ink);
+    border: 1px solid black;
+}
+
+.info-list {
+    display: grid;
+    grid-template-columns: auto 100px;
+    gap: 6px 16px;
+}
+ 
+.info-list dt {
+    font-weight: 700;
+}
+ 
+footer{
+    background-image: url(./assets/icons/magischer-wald-footer-1990x280.jpg);
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 560px) {
+    header {
+        height: 420px;
+        background-position-x: -188px;
+    }
+}
+ 

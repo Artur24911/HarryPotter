@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HarryPotter</title>
+</head>
+<link rel="stylesheet" href="../assets/style/fonts.css">
+<link rel="stylesheet" href="../assets/style/standard.css">
+<link rel="stylesheet" href="../style.css">
+
+<body onload="init()">
+    <header class="header">
+        <section>
+            <h1>Harry Potter</h1>
+            <div class="search-container">
+                <input type="text" data-id="search-input" placeholder="Search characters"
+                    aria-label="Search characters by name" oninput="onSearchInput()">
+            </div>
+        </section>
+    </header>
+    <main data-id="content">
+        <ul class="character-list" data-id="character-list" aria-label="Character list"></ul>
+        <div class="loading" data-id="loading" role="status" hidden>Loading…</div>
+        <button class="load-more" data-id="load-more-button" aria-label="Load more characters" onclick="loadMore()">Load more</button>
+    </main>
+    <dialog data-id="dialog" aria-label="Character details"></dialog>
+    <footer>
+        <p>&copy; 2024 Harry Potter. All rights reserved.</p>
+    </footer>
+</body>
+<script src="./assets/script/template.js"></script>
+<script src="./script.js"></script>
+
+</html>
