@@ -43,6 +43,7 @@ async function fetchPage(page, search) {
     let url = `${apiUrl}?page=${page}`;
     if (search) url += `&search=${encodeURIComponent(search)}`;
     const response = await fetch(url);
+    if (response.status === 404) return { data: [], meta: { total_pages: 0 } };
     if (!response.ok) throw new Error(`Response status: ${response.status}`);
     pageCache[key] = await response.json();
     return pageCache[key];
@@ -185,4 +186,35 @@ function showNext() {
 function showPrevious() {
     currentIndex = (currentIndex - 1 + currentList.length) % currentList.length;
     renderDialog();
+}
+
+function getInfoRows(character) {
+    return [
+        ["Species", character.species],
+        ["Blood status", character.blood_status],
+        ["Born", character.born],
+        ["Gender", character.gender],
+        ["Patronus", character.patronus],
+        ["Wand", joinList(character.wands)],
+    ];
+}
+
+function joinList(list) {
+    return Array.isArray(list) ? list.join(", ") : "";
+}
+
+function getInfoRowsTemplate(character) {
+    return getInfoRows(character).map(getInfoRowTemplate).join("");
+}
+
+function getHouseText(character) {
+    return escapeHtml(character.house || "No house");
+}
+
+function getImage(character) {
+    return character.image || placeholderImage;
+}
+
+function getHouseClass(character) {
+    return character.house ? character.house.toLowerCase().replace(/\s+/g, "-") : "none";
 }

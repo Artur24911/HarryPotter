@@ -1,13 +1,3 @@
-const placeholderImage = "./assets/icons/placeholder.png";
-
-function getImage(character) {
-    return character.image || placeholderImage;
-}
-
-function getHouseClass(character) {
-    return character.house ? character.house.toLowerCase().replace(/\s+/g, "-") : "none";
-}
-
 function getCardTemplate(character, index) {
     return `
         <li>
@@ -23,10 +13,6 @@ function getCardTemplate(character, index) {
             </button>
         </li>
     `;
-}
-
-function getHouseText(character) {
-    return escapeHtml(character.house || "No house");
 }
 
 function getDialogTemplate(character) {
@@ -57,26 +43,10 @@ function getDialogNavTemplate() {
     `;
 }
 
-function getInfoRows(character) {
-    return [
-        ["Species", character.species],
-        ["Blood status", character.blood_status],
-        ["Born", character.born],
-        ["Gender", character.gender],
-        ["Patronus", character.patronus],
-        ["Wand", joinList(character.wands)],
-        ["Job", joinList(character.jobs)],
-    ];
-}
-
-function joinList(list) {
-    return Array.isArray(list) ? list.join(", ") : "";
-}
-
-function getInfoRowsTemplate(character) {
-    return getInfoRows(character).map(getInfoRowTemplate).join("");
-}
-
 function getInfoRowTemplate([label, value]) {
     return `<dt>${label}</dt><dd>${escapeHtml(value || "Unknown")}</dd>`;
+}
+
+function getMessageTemplate(dataId, text) {
+    return `<p class="message" data-id="${dataId}">${escapeHtml(text)}</p>`;
 }

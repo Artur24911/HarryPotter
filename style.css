@@ -1,5 +1,5 @@
 header{
-    background-image: url(./assets/icons/magischer-schloss-banner-1990x280.jpg);
+    background-color: rgba(1, 2, 36, 0.959);
     height: 280px;
     background-size: cover;
 }
@@ -28,6 +28,10 @@ header{
     border: none;
 }
 
+input{
+    padding: 5px;
+}
+
 main{
     background-image: url(./assets/icons/generated-image\ \(5\).png);
     background-size: cover;
@@ -36,17 +40,18 @@ main{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    min-height: 70vh;
 }
 
-.house-gryffindor { --type-color: rgb(174, 0, 1, 0.637); }
+.house-gryffindor { --type-color: rgb(174, 0, 1, 0.95); }
 
-.house-slytherin { --type-color: rgb(42, 98, 61, 0.637); }
+.house-slytherin { --type-color: rgb(42, 98, 61, 0.95); }
 
-.house-ravenclaw { --type-color: rgb(59, 91, 181, 0.637); }
+.house-ravenclaw { --type-color: rgb(59, 91, 181, 0.95); }
 
-.house-hufflepuff { --type-color: rgba(201, 148, 26, 0.637); }
+.house-hufflepuff { --type-color: rgba(201, 148, 26, 0.95); }
 
-.house-none { --type-color: rgba(107, 107, 123, 0.637); }
+.house-none { --type-color: rgba(107, 107, 123, 0.95); }
 
 .character-list {
     list-style: none;
@@ -138,6 +143,21 @@ main{
 .loading[hidden] {
     display: none;
 }
+
+.message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 900;
+    max-width: 90vw;
+    padding: 20px 32px;
+    border-radius: 16px;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-size: 24px;
+    pointer-events: none;
+}
  
 .loading {
     position: fixed;
@@ -180,6 +200,8 @@ dialog::backdrop {
     color: var(--white);
     text-align: center;
     width: 430px;
+    scrollbar-width: thin;
+    scrollbar-color: black var(--type-color);
 }
  
 .dialog-card > img {
@@ -197,6 +219,10 @@ dialog::backdrop {
     background-color: transparent;
     border: 1px solid black;
 }
+
+.dialog-close:hover{
+    scale: 1.2;
+}
  
 .dialog-body {
     padding: 16px;
@@ -212,13 +238,17 @@ dialog::backdrop {
     width: 100%;
 }
  
-.dialog-nav button {
+.dialog-nav>button {
     width: 44px;
     height: 44px;
     border-radius: 50%;
     font-size: 22px;
     background: var(--ink);
     border: 1px solid black;
+}
+
+.dialog-nav>button:hover{
+    scale: 1.2;
 }
 
 .info-list {
@@ -232,7 +262,7 @@ dialog::backdrop {
 }
  
 footer{
-    background-image: url(./assets/icons/magischer-wald-footer-1990x280.jpg);
+    background-color: rgba(1, 2, 36, 0.959);
     height: 180px;
     display: flex;
     justify-content: center;
@@ -250,6 +280,10 @@ footer{
         max-height: 630px;
         min-height: 630px;
         padding-top: 0px;
+    }
+
+    .dialog-card>img{
+        width: 210px;
     }
 
     .dialog-nav{

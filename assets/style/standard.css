@@ -16,7 +16,7 @@ h1 {
     font-family: 'Grenze Gotisch';
     color: white;
     font-size: 112px;
-        margin-block-start: 0px;
+    margin-block-start: 0px;
     margin-block-end: 0px;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
@@ -26,6 +26,7 @@ h1 {
 h2 {
     font-size: 32px;
     font-family: 'Grenze Gotisch';
+    color: white;
 }
 
 p {
@@ -36,11 +37,22 @@ p {
 
 span {
     font-family: 'Grenze Gotisch';
-    color: black;
+    color: white;
+    font-size: 16px;
 }
 
 button:hover {
     cursor: pointer;
 }
 
+dt {
+    font-family: 'Grenze Gotisch';
+    color: white;
+    font-size: 16px;
+}
 
+dd {
+    font-family: 'Grenze Gotisch';
+    color: white;
+    font-size: 16px;
+}
